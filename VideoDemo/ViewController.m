@@ -36,6 +36,12 @@
     AVPlayerViewController *controller = [[AVPlayerViewController alloc]init];
     controller.player = player;
     [controller setShowsPlaybackControls:NO];
+    controller.view.frame = self.view.frame;
+    controller.showsPlaybackControls = FALSE;
+    controller.videoGravity = AVLayerVideoGravityResizeAspectFill;
+    [self.view addSubview:controller.view];
+    self.view.autoresizesSubviews = TRUE;
+    
     [player play];
     
     // show the view controller
